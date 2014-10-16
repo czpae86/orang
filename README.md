@@ -7,7 +7,7 @@ nodejs http server
 ##Example
 
 ```javascript
-var orang = require("../lib/orang");
+var orang = require("orang");
 
 var handlers = [
     {action:"/add",handler:function(request,response){
