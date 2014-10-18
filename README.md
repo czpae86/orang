@@ -1,7 +1,7 @@
 orang
 =====
 
-nodejs http server
+a web server for nodejs
 
 =====
 ##Example
