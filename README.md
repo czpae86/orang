@@ -42,12 +42,18 @@ var handlers = [
         res.end();
     },method:"POST"}
 ];
+
+//add handler
 orang.handlerMapping(handlers);
+
+//init server config
 orang.initConfig({
     port : 80,
     logLevel : "DEBUG",
     staticResource : [path.join(__dirname,"js")]
 });
+
+//start server
 orang.start(function(){
     // do something
 });
