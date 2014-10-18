@@ -2,8 +2,8 @@
  * Created by dwskwcaizhiping on 14-10-15.
  */
 var orang = require("../lib/orang"),
-    fs = require("fs"),
     tools = require("../lib/tools"),
+    fs = require("fs"),
     path = require("path"),
     querystring = require("querystring");
 
@@ -36,9 +36,14 @@ var handlers = [
         res.end();
     },method:"POST"}
 ];
+
 orang.handlerMapping(handlers);
+
 orang.initConfig({
     port : 80,
     staticResourcePath : [path.join(__dirname,"js")]
 });
-orang.start();
+
+orang.start(function(){
+    console.log("callback");
+});

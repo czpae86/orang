@@ -50,6 +50,7 @@ orang.initConfig({
     staticResourcePath : [path.join(__dirname,"js")]
 });
 
-orang.start();
-
+orang.start(function(){
+    console.log("callback");
+});
 ```
