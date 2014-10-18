@@ -7,26 +7,49 @@ nodejs http server
 ##Example
 
 ```javascript
-var orang = require("orang");
+var orang = require("../lib/orang"),
+    tools = require("../lib/tools"),
+    fs = require("fs"),    
+    path = require("path"),
+    querystring = require("querystring");
 
 var handlers = [
-    {action:"/add",handler:function(request,response){
-        response.writeHead(200, {'Content-Type': 'text/plain'});
-        response.write("add");
-        response.end();
+    {action:"/",handler:function(req,res){
+        tools.sendFile(res,'./index.html');
+    },method:["GET"]},
+
+    {action:"/add",handler:function(req,res,params){
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.write(querystring.stringify(params, ';', ':'),"utf8");
+        res.end();
     },method:["post","get"]},
-    {action:"/upload",handler:function(request,response){
-        response.writeHead(200, {'Content-Type': 'text/plain'});
-        response.write("upload");
-        response.end();
+
+    {action:"/delete",handler:function(req,res){
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.write("delete");
+        res.end();
+    },method:["POST"]},
+
+    {action:"/update",handler:function(req,res){
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.write("update");
+        res.end();
+    }},
+
+    {action:"/upload",handler:function(req,res){
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.write("upload");
+        res.end();
     },method:"POST"}
 ];
 
 orang.handlerMapping(handlers);
 
 orang.initConfig({
-    port : 80
+    port : 80,
+    staticResourcePath : [path.join(__dirname,"js")]
 });
 
 orang.start();
+
 ```
