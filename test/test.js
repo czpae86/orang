@@ -1,5 +1,5 @@
 /**
- * Created by dwskwcaizhiping on 14-10-15.
+ * Created by caizhiping on 14-10-15.
  */
 var orang = require("../lib/orang"),
     tools = require("../lib/tools"),
@@ -36,14 +36,12 @@ var handlers = [
         res.end();
     },method:"POST"}
 ];
-
 orang.handlerMapping(handlers);
-
 orang.initConfig({
     port : 80,
-    staticResourcePath : [path.join(__dirname,"js")]
+    logLevel : "DEBUG",
+    staticResource : [path.join(__dirname,"js")]
 });
-
 orang.start(function(){
-    console.log("callback");
+    // do something
 });

@@ -9,7 +9,7 @@ nodejs http server
 ```javascript
 var orang = require("../lib/orang"),
     tools = require("../lib/tools"),
-    fs = require("fs"),    
+    fs = require("fs"),
     path = require("path"),
     querystring = require("querystring");
 
@@ -42,15 +42,13 @@ var handlers = [
         res.end();
     },method:"POST"}
 ];
-
 orang.handlerMapping(handlers);
-
 orang.initConfig({
     port : 80,
-    staticResourcePath : [path.join(__dirname,"js")]
+    logLevel : "DEBUG",
+    staticResource : [path.join(__dirname,"js")]
 });
-
 orang.start(function(){
-    console.log("callback");
+    // do something
 });
 ```
