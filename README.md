@@ -1,7 +1,6 @@
 orang
 =====
 node web framework
-node web server
 
 =====
 ##Example
