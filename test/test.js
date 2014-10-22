@@ -9,7 +9,7 @@ var orang = require("../lib/orang"),
 
 var handlers = [
     {action:"/",handler:function(req,res){
-        tools.sendFile(res,'./index.html');
+        tools.sendFile(req,res,'./index.html');
     },method:["GET"]},
 
     {action:"/add",handler:function(req,res,params){
@@ -40,7 +40,7 @@ orang.handlerMapping(handlers);
 orang.initConfig({
     port : 80,
     logLevel : "DEBUG",
-    staticResource : [path.join(__dirname,"js")]
+    staticResource : [path.join(__dirname,"js"),path.join(__dirname,"js2")]
 });
 orang.start(function(){
     // do something
